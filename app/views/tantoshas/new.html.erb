@@ -1,0 +1,17 @@
+<div class="container">
+    <div class="employee_dashboard">
+
+        <h4>NEW EMPLOYEE</h4>
+
+        <div class="employee_dashboard_btn">
+        <%= link_to employees_path do %>
+            <i class="fas fa-chevron-circle-left"></i> Back
+        <% end %>
+        </div>
+
+        <div class="employee_dashboard_border">
+            <%= render 'tantoshas/form', tantosha: @tantosha, employee: @employee %>
+        </div>
+
+    </div>
+</div>

@@ -4,6 +4,4 @@ class Employee < ApplicationRecord
   devise :database_authenticatable, :registerable,
   :recoverable, :rememberable, :validatable
 
-  belongs_to :tantosha
-  has_many :requests
 end
