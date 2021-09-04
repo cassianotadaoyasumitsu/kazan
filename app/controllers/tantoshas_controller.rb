@@ -1,0 +1,3 @@
+class TantoshasController < ApplicationController
+
+end

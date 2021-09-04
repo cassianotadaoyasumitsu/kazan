@@ -7,7 +7,6 @@ class CreateRequests < ActiveRecord::Migration[6.0]
       t.date :request_date
       t.text :request_reason
 
-      t.references :employee, null: false, foreign_key: true
 
       t.timestamps
     end

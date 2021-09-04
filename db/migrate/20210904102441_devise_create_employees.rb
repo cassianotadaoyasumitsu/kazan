@@ -33,7 +33,6 @@ class DeviseCreateEmployees < ActiveRecord::Migration[6.0]
       t.string :passport
       t.date :passport_date
 
-      t.references :tantosha, null: false, foreign_key: true
 
       ## Trackable
       # t.integer  :sign_in_count, default: 0, null: false
