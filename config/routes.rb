@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   end
   namespace :tantoshas_backoffice do
     get 'pages/home'
+    get 'pages/index'
   end
   namespace :users_backoffice do
     get 'pages/home'
