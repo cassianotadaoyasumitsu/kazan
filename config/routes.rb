@@ -1,25 +1,22 @@
 Rails.application.routes.draw do
   namespace :employees_backoffice do
-    get 'employees/index'
+    get 'pages/home'
+    resources :employees
   end
   namespace :tantoshas_backoffice do
-    get 'tantoshas/index'
+    get 'pages/home'
+    resources :tantoshas, only: [:index]
   end
   namespace :users_backoffice do
-    get 'users/index'
+    get 'pages/home'
+    resources :users, only: [:index]
   end
   namespace :site do
     get 'pages/home'
   end
-  namespace :employees_backoffice do
-    get 'pages/home'
-  end
-  namespace :tantoshas_backoffice do
-    get 'pages/home'
-  end
-  namespace :users_backoffice do
-    get 'pages/home'
-  end
+
+
+
   devise_for :employees
   devise_for :tantoshas
   devise_for :users

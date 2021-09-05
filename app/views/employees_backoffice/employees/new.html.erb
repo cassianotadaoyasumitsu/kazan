@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="employee_dashboard">
+
+        <h4>NEW EMPLOYEE</h4>
+
+<%= form_with(model: [ :employees_backoffice, @employee ], local: true) do |f| %>
+<%= f.text_field :name, label: '氏名 (Name):' %>
+<%= f.text_field :furigana %>
+<%= f.text_field :address %>
+<%= f.text_field :phone %>
+<%= f.text_field :email, placeholder:"email" %>
+<%= f.text_field :password, placeholder:"password" %>
+<%= f.text_field :password_confirmation, placeholder:"confirm" %>
+<%= f.text_field :factory %>
+<%= f.text_field :role %>
+<%= f.text_field :job_exp %>
+<%= f.text_field :pay_number %>
+<%= f.text_field :started_date %>
+<%= f.text_field :licence1, as: :boolean %>
+<%= f.text_field :healthy_exam %>
+<%= f.text_field :drive_licence %>
+<%= f.text_field :drive_licence_date %>
+<%= f.text_field :document %>
+<%= f.text_field :document_date %>
+<%= f.text_field :passport %>
+<%= f.text_field :passport_date %>
+<%= f.submit %>
+<% end %>
+
+
+    </div>
+</div>
