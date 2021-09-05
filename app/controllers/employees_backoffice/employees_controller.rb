@@ -14,7 +14,7 @@ class EmployeesBackoffice::EmployeesController < EmployeesBackofficeController
   def create
     @employee = Employee.new(employee_params)
     if @employee.save
-      redirect_to employees_path
+      redirect_to employees_backoffice_employees_path
     else
       render :new
     end
@@ -27,7 +27,7 @@ class EmployeesBackoffice::EmployeesController < EmployeesBackofficeController
   def update
     @employee = Employee.find(params[:id])
     if @employee.update(employee_params)
-      redirect_to employees_path
+      redirect_to employees_backoffice_employees_path
     else
       render :edit
     end
@@ -36,7 +36,7 @@ class EmployeesBackoffice::EmployeesController < EmployeesBackofficeController
   def destroy
     @employee = Employee.find(params[:id])
     @employee.destroy
-    redirect_to employees_path
+    redirect_to employees_backoffice_employees_path
   end
 
   private
@@ -46,7 +46,7 @@ class EmployeesBackoffice::EmployeesController < EmployeesBackofficeController
       :name, :furigana, :address, :phone,
       :email, :factory, :role, :job_exp, :pay_number, :started_date,
       :licence1, :healthy_exam, :drive_licence, :drive_licence_date,
-      :document, :document_date, :passport, :passport_date
+      :document, :document_date, :passport, :passport_date, :password, :password_confirmation
     )
   end
 end

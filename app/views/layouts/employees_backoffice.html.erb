@@ -15,6 +15,7 @@
   <%= render 'shared/navbar' %>
   <div>
     <h1>EMPLOYEE APPLICATION</h1>
+    <%= link_to 'Employees', employees_backoffice_employees_path, class: "btn btn-primary"  %>
     <%= yield %>
   </div>
   <%= render 'shared/flashes' %>
