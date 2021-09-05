@@ -9,5 +9,8 @@
 
 <% @employees.each do |employee| %>
 
-<p><%= employee.id %> - <%= employee.email %> - </p>
+<p><%= employee.id %> - <%= employee.email %> -
+ <%= link_to 'Show', employees_backoffice_employee_path(current_employee) %> -
+ <%= link_to 'Edit', edit_employees_backoffice_employee_path(current_employee) %> -
+ <%= link_to 'Delete', employees_backoffice_employee_path(employee), method: :delete, data: { confirm: 'Are your sure?'} %> </p>
 <% end %>
