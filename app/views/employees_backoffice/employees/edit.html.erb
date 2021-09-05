@@ -1,8 +1,10 @@
 <div class="container">
   <div class="employee_dashboard">
 
+    <h4><%= current_employee.name %></h4>
+
     <div class="employee_dashboard_btn">
-      <%= link_to employees_backoffice_employees_path do %>
+      <%= link_to employees_backoffice_employee_path(current_employee) do %>
       <i class="fas fa-chevron-circle-left"></i> Back
       <% end %>
     </div>
