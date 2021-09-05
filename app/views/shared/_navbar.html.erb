@@ -13,6 +13,9 @@
       <ul class="navbar-nav mr-auto">
         <% if user_signed_in? %>
         <li class="nav-item">
+          <%= link_to "User", users_backoffice_pages_home_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
           <%= link_to "Tantosha", "#", class: "nav-link" %>
         </li>
         <li class="nav-item">
@@ -23,6 +26,9 @@
         </li>
         <% elsif tantosha_signed_in? %>
         <li class="nav-item">
+          <%= link_to "Tantoshas", tantoshas_backoffice_pages_home_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
           <%= link_to "Employees", "#", class: "nav-link" %>
         </li>
         <li class="nav-item">
@@ -32,6 +38,9 @@
           <%= link_to "Log out", destroy_tantosha_session_path, method: :delete, class: "nav-link" %>
         </li>
         <% elsif employee_signed_in? %>
+        <li class="nav-item">
+          <%= link_to "Employees", employees_backoffice_pages_home_path, class: "nav-link" %>
+        </li>
         <li class="nav-item">
           <%= link_to "Requests", "#", class: "nav-link" %>
         </li>

@@ -1,4 +1,13 @@
 Rails.application.routes.draw do
+  namespace :employees_backoffice do
+    get 'employees/index'
+  end
+  namespace :tantoshas_backoffice do
+    get 'tantoshas/index'
+  end
+  namespace :users_backoffice do
+    get 'users/index'
+  end
   namespace :site do
     get 'pages/home'
   end

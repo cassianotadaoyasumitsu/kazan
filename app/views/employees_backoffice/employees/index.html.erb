@@ -1,0 +1,37 @@
+<h1>EmployeesBackoffice::Employees#index</h1>
+<p>Find me in app/views/employees_backoffice/employees/index.html.erb</p>
+<div class="container">
+  <div class="employee_dashboard">
+
+    <h4>EMPLOYEES</h4>
+
+    <div class="employee_dashboard_btn">
+      <%= link_to new_employee_path, class: 'employee_dashboard_link' do %>
+        <i class="fas fa-plus-circle"></i> New employee
+      <% end %>
+    </div>
+
+    <ul class="list-group mb-3">
+      <% @employees.order(:name).each do |employee| %>
+      <li class="list-group-item">
+        <div class="row justify-content-between align-items-center">
+          <div>
+            <strong><%= employee.name %></strong>
+          </div>
+          <div>
+            <%= link_to employee_path(employee), class: 'btn btn-primary' do %>
+              <i class="fas fa-eye"></i>
+            <% end %>
+            <%= link_to edit_employee_path(employee), class: 'btn btn-secondary' do %>
+              <i class="fas fa-edit"></i>
+            <% end %>
+            <%= link_to employee_path(employee), class: 'btn btn-danger', method: :delete, data: { confirm: 'Are you sure whant to delete?' }  do %>
+              <i class="fas fa-trash"></i>
+            <% end %>
+          </div>
+        </div>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
