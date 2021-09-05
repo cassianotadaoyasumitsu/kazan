@@ -1,2 +1,6 @@
-<h1>EmployeesBackoffice::Pages#home</h1>
-<p>Find me in app/views/employees_backoffice/pages/home.html.erb</p>
+<div class="container">
+  <div class="employee_dashboard">
+    <h1>EMPLOYEE APPLICATION</h1>
+    <%= link_to 'Show', employees_backoffice_employee_path(current_employee), class: "btn btn-primary"  %>
+  </div>
+</div>
