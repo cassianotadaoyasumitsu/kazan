@@ -1,0 +1,55 @@
+<div class="container">
+  <div class="employee_dashboard">
+
+    <h4><%= current_tantosha.name %></h4>
+
+    <div class="employee_dashboard_btn">
+      <%= link_to tantoshas_backoffice_tantosha_path(current_tantosha) do %>
+      <i class="fas fa-chevron-circle-left"></i> Back
+      <% end %>
+    </div>
+
+    <div class="employee_dashboard_border">
+      <%= form_with(model: [ :tantoshas_backoffice, @tantosha ], local: true) do |f| %>
+      <label>Name</label>
+      <p><%= f.text_field :name %></p>
+      <label>Furigana</label>
+      <p><%= f.text_field :furigana %></p>
+      <label>Adresses</label>
+      <p><%= f.text_field :address %></p>
+      <label>Phone</label>
+      <p><%= f.text_field :phone %></p>
+      <label>Email</label>
+      <p><%= f.text_field :email %></p>
+      <label>Factory</label>
+      <p><%= f.text_field :factory %></p>
+      <label>Role</label>
+      <p><%= f.text_field :role %></p>
+      <label>Job exp</label>
+      <p><%= f.text_field :job_exp %></p>
+      <label>Pay number</label>
+      <p><%= f.text_field :pay_number %></p>
+      <label>Started date</label>
+      <p><%= f.text_field :started_date %></p>
+      <label>Licence1</label>
+      <p><%= f.text_field :licence1 %></p>
+      <label>Healthy exam</label>
+      <p><%= f.text_field :healthy_exam %></p>
+      <label>Drive licence</label>
+      <p><%= f.text_field :drive_licence %></p>
+      <label>Drive licence date</label>
+      <p><%= f.text_field :drive_licence_date %></p>
+      <label>Document</label>
+      <p><%= f.text_field :document %></p>
+      <label>Document date</label>
+      <p><%= f.text_field :document_date %></p>
+      <label>Passport</label>
+      <p><%= f.text_field :passport %></p>
+      <label>Passport date</label>
+      <p><%= f.text_field :passport_date %></p>
+      <%= f.submit %>
+      <% end %>
+    </div>
+
+  </div>
+</div>
