@@ -1,0 +1,54 @@
+<div class="container">
+  <div class="employee_dashboard">
+
+    <h4><%= @tantosha.name %></h4>
+
+    <div class="employee_dashboard_btn">
+      <%= link_to tantoshas_backoffice_pages_home_path do %>
+        <i class="fas fa-chevron-circle-left"></i> Back
+      <% end %>
+      <%= link_to edit_tantoshas_backoffice_tantosha_path(current_tantosha), class: 'tantosha_dashboard_link' do %>
+        <i class="fas fa-plus-circle"></i> Edit
+      <% end %>
+    </div>
+
+    <div class="employee_dashboard_border">
+      <label>Name</label>
+      <p><%= @tantosha.name %></p>
+      <label>Furigana</label>
+      <p><%= @tantosha.furigana %></p>
+      <label>Adresses</label>
+      <p><%= @tantosha.address %></p>
+      <label>Phone</label>
+      <p><%= @tantosha.phone %></p>
+      <label>Email</label>
+      <p><%= @tantosha.email %></p>
+      <label>Factory</label>
+      <p><%= @tantosha.factory %></p>
+      <label>Role</label>
+      <p><%= @tantosha.role %></p>
+      <label>Job exp</label>
+      <p><%= @tantosha.job_exp %></p>
+      <label>Pay number</label>
+      <p><%= @tantosha.pay_number %></p>
+      <label>Started date</label>
+      <p><%= @tantosha.started_date %></p>
+      <label>Licence1</label>
+      <p><%= @tantosha.licence1 %></p>
+      <label>Healthy exam</label>
+      <p><%= @tantosha.healthy_exam %></p>
+      <label>Drive licence</label>
+      <p><%= @tantosha.drive_licence %></p>
+      <label>Drive licence date</label>
+      <p><%= @tantosha.drive_licence_date %></p>
+      <label>Document</label>
+      <p><%= @tantosha.document %></p>
+      <label>Document date</label>
+      <p><%= @tantosha.document_date %></p>
+      <label>Passport</label>
+      <p><%= @tantosha.passport %></p>
+      <label>Passport date</label>
+      <p><%= @tantosha.passport_date %></p>
+    </div>
+  </div>
+</div>

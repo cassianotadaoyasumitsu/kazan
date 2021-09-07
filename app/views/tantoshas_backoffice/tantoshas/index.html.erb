@@ -1,2 +1,20 @@
-<h1>TantoshasBackoffice::Tantoshas#index</h1>
-<p>Find me in app/views/tantoshas_backoffice/tantoshas/index.html.erb</p>
+<div class="container">
+  <div class="tantosha_dashboard">
+
+    <h1>tantosha APPLICATION</h1>
+    <%= link_to 'Show', tantoshas_backoffice_tantosha_path(current_tantosha), class: "btn btn-primary"  %>
+
+    <h4>tantoshaS</h4>
+
+    <%= link_to 'NOVO', new_tantoshas_backoffice_tantosha_path, class: "btn btn-secondary" %>
+
+    <% @tantoshas.each do |tantosha| %>
+
+    <p><%= tantosha.id %> - <%= tantosha.email %> -
+     <%= link_to 'Show', tantoshas_backoffice_tantosha_path(current_tantosha) %> -
+     <%= link_to 'Edit', edit_tantoshas_backoffice_tantosha_path(current_tantosha) %> -
+     <%= link_to 'Delete', tantoshas_backoffice_tantosha_path(tantosha), method: :delete, data: { confirm: 'Are your sure?'} %> </p>
+     <% end %>
+
+   </div>
+ </div>
