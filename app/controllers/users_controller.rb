@@ -46,7 +46,7 @@ class UsersController < ApplicationController
     params.require(:user).permit(
       :name, :furigana, :address, :phone, :password,
       :email, :role, :job_exp, :started_date, :drive_license,
-      :drive_licence_date, :healthy_exam, :roles,
+      :drive_licence_date, :healthy_exam, :roles, :tantosha, :employee,
       :document, :document_date, :passport, :passport_date
       )
   end

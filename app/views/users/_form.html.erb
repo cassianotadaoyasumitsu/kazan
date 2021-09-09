@@ -1,9 +1,12 @@
 <%= simple_form_for(user) do |f| %>
+<%= f.input :tantosha %>
+<%= f.input :employee %>
 <%= f.input :name, label: '氏名 (Name):' %>
 <%= f.input :furigana %>
 <%= f.input :address %>
 <%= f.input :phone %>
 <%= f.input :email %>
+<%= f.input :password %>
 <%= f.input :factory %>
 <%= f.input :role %>
 <%= f.input :job_exp %>
