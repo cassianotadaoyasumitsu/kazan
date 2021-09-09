@@ -10,76 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_04_135017) do
+ActiveRecord::Schema.define(version: 2021_09_08_085141) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "employees", force: :cascade do |t|
-    t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
-    t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.string "name"
-    t.string "furigana"
-    t.string "address"
-    t.string "phone"
-    t.string "factory"
-    t.string "role"
-    t.string "job_exp"
-    t.string "pay_number"
-    t.date "started_date"
-    t.boolean "licence1", default: false
-    t.date "healthy_exam"
-    t.string "drive_licence"
-    t.date "drive_licence_date"
-    t.string "document"
-    t.date "document_date"
-    t.string "passport"
-    t.date "passport_date"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["email"], name: "index_employees_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_employees_on_reset_password_token", unique: true
-  end
 
   create_table "requests", force: :cascade do |t|
     t.string "kind_of"
     t.string "amount"
     t.date "request_date"
     t.text "request_reason"
+    t.boolean "confirm", default: false
+    t.boolean "deny", default: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "tantoshas", force: :cascade do |t|
-    t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
-    t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.string "name"
-    t.string "furigana"
-    t.string "address"
-    t.string "phone"
-    t.string "factory"
-    t.string "role"
-    t.string "job_exp"
-    t.string "pay_number"
-    t.date "started_date"
-    t.boolean "licence1", default: false
-    t.date "healthy_exam"
-    t.string "drive_licence"
-    t.date "drive_licence_date"
-    t.string "document"
-    t.date "document_date"
-    t.string "passport"
-    t.date "passport_date"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["email"], name: "index_tantoshas_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_tantoshas_on_reset_password_token", unique: true
+    t.index ["user_id"], name: "index_requests_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -88,10 +34,29 @@ ActiveRecord::Schema.define(version: 2021_09_04_135017) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.string "roles"
+    t.string "name"
+    t.string "furigana"
+    t.string "address"
+    t.string "phone"
+    t.string "factory"
+    t.string "role"
+    t.string "job_exp"
+    t.string "pay_number"
+    t.date "started_date"
+    t.boolean "licence1", default: false
+    t.date "healthy_exam"
+    t.string "drive_licence"
+    t.date "drive_licence_date"
+    t.string "document"
+    t.date "document_date"
+    t.string "passport"
+    t.date "passport_date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "requests", "users"
 end
