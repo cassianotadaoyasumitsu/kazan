@@ -13,49 +13,20 @@
       <ul class="navbar-nav mr-auto">
         <% if user_signed_in? %>
         <li class="nav-item">
-          <%= link_to "User", users_backoffice_pages_home_path, class: "nav-link" %>
+          <%= link_to "Perfil", user_path(current_user), class: "nav-link" %>
         </li>
         <li class="nav-item">
-          <%= link_to "Tantosha", "#", class: "nav-link" %>
+          <%= link_to "Tantosha", new_user_path, class: "nav-link" %>
         </li>
         <li class="nav-item">
-          <%= link_to "Employees", "#", class: "nav-link" %>
+          <%= link_to "Employees", new_user_path, class: "nav-link" %>
         </li>
         <li class="nav-item">
           <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link" %>
         </li>
-        <% elsif tantosha_signed_in? %>
-        <li class="nav-item">
-          <%= link_to "Tantoshas", tantoshas_backoffice_pages_home_path, class: "nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Employees", "#", class: "nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Requests", "#", class: "nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Log out", destroy_tantosha_session_path, method: :delete, class: "nav-link" %>
-        </li>
-        <% elsif employee_signed_in? %>
-        <li class="nav-item">
-          <%= link_to "Home", employees_backoffice_pages_home_path, class: "nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Requests", "#", class: "nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Log out", destroy_employee_session_path, method: :delete, class: "nav-link" %>
-        </li>
         <% else %>
         <li class="nav-item">
           <%= link_to "User", new_user_session_path, class: "nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Tantosha", new_tantosha_session_path, class: "nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Employee", new_employee_session_path, class: "nav-link" %>
         </li>
         <% end %>
       </ul>

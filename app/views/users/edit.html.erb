@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="employee_dashboard">
+
+        <h4><%= @user.name %></h4>
+
+        <div class="employee_dashboard_btn">
+            <%= link_to users_path do %>
+                <i class="fas fa-chevron-circle-left"></i> Back
+            <% end %>
+            <%= link_to new_user_path, class: 'user_dashboard_link' do %>
+                <i class="fas fa-plus-circle"></i> New user
+            <% end %>
+        </div>
+
+        <div class="employee_dashboard_border">
+            <%= render 'users/form', user: @user %>
+        </div>
+
+    </div>
+</div>

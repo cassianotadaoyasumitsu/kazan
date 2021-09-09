@@ -1,0 +1,52 @@
+<div class="container">
+  <div class="employee_dashboard">
+
+    <h4><%= @user.name %></h4>
+
+    <div class="employee_dashboard_btn">
+      <%= link_to root_path do %>
+      <i class="fas fa-chevron-circle-left"></i> Back
+      <% end %>
+    </div>
+
+    <div class="employee_dashboard_border">
+      <label>Name</label>
+      <p><%= @user.name %></p>
+      <label>Furigana</label>
+      <p><%= @user.furigana %></p>
+      <label>Adresses</label>
+      <p><%= @user.address %></p>
+      <label>Phone</label>
+      <p><%= @user.phone %></p>
+      <label>Email</label>
+      <p><%= @user.email %></p>
+      <label>Factory</label>
+      <p><%= @user.factory %></p>
+      <label>Role</label>
+      <p><%= @user.role %></p>
+      <label>Job exp</label>
+      <p><%= @user.job_exp %></p>
+      <label>Pay number</label>
+      <p><%= @user.pay_number %></p>
+      <label>Started date</label>
+      <p><%= @user.started_date %></p>
+      <label>Licence1</label>
+      <p><%= @user.licence1 %></p>
+      <label>Healthy exam</label>
+      <p><%= @user.healthy_exam %></p>
+      <label>Drive licence</label>
+      <p><%= @user.drive_licence %></p>
+      <label>Drive licence date</label>
+      <p><%= @user.drive_licence_date %></p>
+      <label>Document</label>
+      <p><%= @user.document %></p>
+      <label>Document date</label>
+      <p><%= @user.document_date %></p>
+      <label>Passport</label>
+      <p><%= @user.passport %></p>
+      <label>Passport date</label>
+      <p><%= @user.passport_date %></p>
+
+    </div>
+  </div>
+</div>
