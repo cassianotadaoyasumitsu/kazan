@@ -46,6 +46,12 @@
       <p><%= @user.passport %></p>
       <label>Passport date</label>
       <p><%= @user.passport_date %></p>
+      <% @user.requests.each do |request| %>
+        <%= request.kind_of %>
+        <%= request.amount %>
+        <%= request.request_date %>
+        <%= request.request_reason %>
+      <% end -%>
 
     </div>
   </div>
