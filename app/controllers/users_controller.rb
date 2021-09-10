@@ -1,7 +1,11 @@
 class UsersController < ApplicationController
 
   def index
-    @users = User.all
+    if current_user.company?
+      @users = User.where(tantosha: true)
+    elsif current_user.tantosha?
+      @users = User.where(employee: true)
+    end
   end
 
   def show
@@ -44,7 +48,7 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(
-      :name, :furigana, :address, :phone, :password,
+      :name, :furigana, :address, :phone, :password, :company,
       :email, :role, :job_exp, :started_date, :drive_license,
       :drive_licence_date, :healthy_exam, :roles, :tantosha, :employee,
       :document, :document_date, :passport, :passport_date

@@ -1,12 +1,19 @@
 <%= simple_form_for(user) do |f| %>
-<%= f.input :tantosha %>
-<%= f.input :employee %>
+<% if current_user.company? %>
+<%= f.input :tantosha, :input_html => { :checked => true } %>
+<% end %>
+<% if current_user.tantosha? %>
+<%= f.input :employee, :input_html => { :checked => true} %>
+<% end %>
 <%= f.input :name, label: '氏名 (Name):' %>
 <%= f.input :furigana %>
 <%= f.input :address %>
 <%= f.input :phone %>
 <%= f.input :email %>
-<%= f.input :password %>
+<% if @user.persisted? %>
+<% else %>
+  <%= f.input :password %>
+  <% end %>
 <%= f.input :factory %>
 <%= f.input :role %>
 <%= f.input :job_exp %>
