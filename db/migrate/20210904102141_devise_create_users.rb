@@ -15,6 +15,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.0]
       t.datetime :remember_created_at
 
       ## Roles
+      t.boolean :company
       t.boolean :tantosha
       t.boolean :employee
       t.string :roles
