@@ -7,12 +7,14 @@
       <%= link_to root_path do %>
       <i class="fas fa-chevron-circle-left"></i> Back
       <% end %>
-      <%= link_to edit_user_path(current_user) do  %>
+      <%= link_to edit_user_path(current_user) do %>
       <i class="fas fa-edit"></i>
       <% end %>
     </div>
 
     <div class="employee_dashboard_border">
+      <label>REF</label>
+      <p><%= @user.ref %></p>
       <label>Name</label>
       <p><%= @user.name %></p>
       <label>Furigana</label>
@@ -50,10 +52,15 @@
       <label>Passport date</label>
       <p><%= @user.passport_date %></p>
       <% @user.requests.each do |request| %>
-        <%= request.kind_of %>
-        <%= request.amount %>
-        <%= request.request_date %>
-        <%= request.request_reason %>
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title"><%= request.kind_of %></h5>
+          <h6 class="card-subtitle mb-2 text-muted"><%= request.amount %></h6>
+          <p class="card-text"><%= request.request_reason %></p>
+          <p><%= request.request_date %></p>
+          <p><%= request.created_at %></p>
+        </div>
+      </div>
       <% end -%>
 
     </div>

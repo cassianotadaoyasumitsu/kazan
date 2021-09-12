@@ -1,18 +1,51 @@
 <div class="container">
   <div class="employee_dashboard">
 
-        <div class="employee_dashboard_btn">
-            <%= link_to users_path do %>
-                <i class="fas fa-chevron-circle-left"></i> Back
-            <% end %>
-            <%= link_to new_user_path, class: 'user_dashboard_link' do %>
-                <i class="fas fa-plus-circle"></i> New user
-            <% end %>
-        </div>
+    <div class="employee_dashboard_btn">
+      <%= link_to users_path do %>
+      <i class="fas fa-chevron-circle-left"></i> Back
+      <% end %>
+      <%= link_to new_user_path, class: 'user_dashboard_link' do %>
+      <i class="fas fa-plus-circle"></i> New user
+      <% end %>
+    </div>
 
-        <div class="employee_dashboard_border">
-            <%= render 'users/form', user: @user %>
-        </div>
+    <div class="employee_dashboard_border">
+      <%= simple_form_for(@user) do |f| %>
+      <% if current_user.company? %>
+      <%= f.input :tantosha, input_html: { checked: true } %>
+      <%= f.input :ref, input_html: {value: current_user.id } %>
+      <% end %>
+      <% if current_user.tantosha? %>
+      <%= f.input :employee, :input_html => { :checked => true} %>
+      <%= f.input :ref, input_html: {value: current_user.id } %>
+      <% end %>
+      <%= f.input :name, label: '氏名 (Name):' %>
+      <%= f.input :furigana %>
+      <%= f.input :address %>
+      <%= f.input :phone %>
+      <%= f.input :email %>
+      <% if @user.persisted? %>
+      <% else %>
+      <%= f.input :password %>
+      <% end %>
+      <%= f.input :factory %>
+      <%= f.input :role %>
+      <%= f.input :job_exp %>
+      <%= f.input :pay_number %>
+      <%= f.input :started_date %>
+      <%= f.input :licence1, as: :boolean %>
+      <%= f.input :healthy_exam %>
+      <%= f.input :drive_licence %>
+      <%= f.input :drive_licence_date %>
+      <%= f.input :document %>
+      <%= f.input :document_date %>
+      <%= f.input :passport %>
+      <%= f.input :passport_date %>
+      <%= f.submit 'Add', class: 'btn btn-secondary add-btn' %>
+      <% end %>
 
     </div>
+
+  </div>
 </div>

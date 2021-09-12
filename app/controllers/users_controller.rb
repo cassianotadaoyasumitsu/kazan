@@ -9,7 +9,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = current_user
+    @user = User.find(params[:id])
   end
 
   def new
@@ -51,7 +51,7 @@ class UsersController < ApplicationController
       :name, :furigana, :address, :phone, :password, :company,
       :email, :role, :job_exp, :started_date, :drive_license,
       :drive_licence_date, :healthy_exam, :roles, :tantosha, :employee,
-      :document, :document_date, :passport, :passport_date, :ref
+      :document, :document_date, :passport, :passport_date, :ref, :username
       )
   end
 end
