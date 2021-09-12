@@ -13,7 +13,7 @@ class RequestsController < ApplicationController
     @request = Request.new(request_params)
     @request.user = @user
     if @request.save
-      redirect_to users_path(@user)
+      redirect_to user_path(@user)
     else
       render :new
     end
