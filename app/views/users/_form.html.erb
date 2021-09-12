@@ -1,9 +1,11 @@
 <%= simple_form_for(user) do |f| %>
 <% if current_user.company? %>
-<%= f.input :tantosha, :input_html => { :checked => true } %>
+<%= f.input :tantosha, input_html: { checked: true } %>
+<%= f.input :ref, input_html: {value: current_user.id } %>
 <% end %>
 <% if current_user.tantosha? %>
 <%= f.input :employee, :input_html => { :checked => true} %>
+<%= f.input :ref, input_html: {value: current_user.id } %>
 <% end %>
 <%= f.input :name, label: '氏名 (Name):' %>
 <%= f.input :furigana %>

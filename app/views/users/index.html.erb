@@ -14,7 +14,7 @@
       <li class="list-group-item">
         <div class="row justify-content-between align-items-center">
           <div>
-            <strong><%= user.name %></strong>
+            <strong><%= user.name %><%= user.ref %></strong>
           </div>
           <div>
             <%= link_to user_path(user), class: 'btn btn-primary' do %>

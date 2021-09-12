@@ -7,6 +7,9 @@
       <%= link_to root_path do %>
       <i class="fas fa-chevron-circle-left"></i> Back
       <% end %>
+      <%= link_to edit_user_path(current_user) do  %>
+      <i class="fas fa-edit"></i>
+      <% end %>
     </div>
 
     <div class="employee_dashboard_border">

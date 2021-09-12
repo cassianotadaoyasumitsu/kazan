@@ -2,9 +2,9 @@ class UsersController < ApplicationController
 
   def index
     if current_user.company?
-      @users = User.where(tantosha: true)
+      @users = User.where(tantosha: true, ref: current_user.id)
     elsif current_user.tantosha?
-      @users = User.where(employee: true)
+      @users = User.where(employee: true, ref: current_user.id)
     end
   end
 
@@ -51,7 +51,7 @@ class UsersController < ApplicationController
       :name, :furigana, :address, :phone, :password, :company,
       :email, :role, :job_exp, :started_date, :drive_license,
       :drive_licence_date, :healthy_exam, :roles, :tantosha, :employee,
-      :document, :document_date, :passport, :passport_date
+      :document, :document_date, :passport, :passport_date, :ref
       )
   end
 end
