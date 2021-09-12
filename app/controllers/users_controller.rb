@@ -51,7 +51,7 @@ class UsersController < ApplicationController
       :name, :furigana, :address, :phone, :password, :company,
       :email, :role, :job_exp, :started_date, :drive_license,
       :drive_licence_date, :healthy_exam, :roles, :tantosha, :employee,
-      :document, :document_date, :passport, :passport_date, :ref, :username
+      :document, :document_date, :passport, :passport_date, :ref
       )
   end
 end

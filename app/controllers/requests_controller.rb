@@ -33,6 +33,6 @@ class RequestsController < ApplicationController
   end
 
   def request_params
-    params.require(:request).permit(:kind_of, :amount, :request_date, :request_reason)
+    params.require(:request).permit(:kind_of, :amount, :request_date, :request_reason, :ref)
   end
 end
