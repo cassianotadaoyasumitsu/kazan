@@ -1,14 +1,15 @@
 <div class="container">
-  <div class="user_dashboard">
+  <div class="employee_dashboard">
 
-    <h4>userS</h4>
+    <h4>Users</h4>
 
-    <div class="user_dashboard_btn">
+    <div class="employee_dashboard_btn">
       <%= link_to new_user_path, class: 'user_dashboard_link' do %>
         <i class="fas fa-plus-circle"></i> New user
       <% end %>
     </div>
 
+    <div class="employee_dashboard_border">
     <ul class="list-group mb-3">
       <% @users.each do |user| %>
       <li class="list-group-item">
@@ -31,5 +32,6 @@
       </li>
       <% end %>
     </ul>
+    </div>
   </div>
 </div>

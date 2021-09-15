@@ -2,3 +2,5 @@
 .navbar-lewagon .navbar-collapse { flex-grow: 0; }
 .navbar-lewagon .navbar-brand img { width: 40px; }
 button.navbar-toggler { border: none; }
+.navbar_user_name { color: #fff; text-align: center; margin: 0; padding-left: 100px; }
+.navbar_user_name::before { content: ''; display: inline-block; width: 10px; height: 10px; border-radius: 7.5px; background-color: #34c56e; margin-right: 5px; }

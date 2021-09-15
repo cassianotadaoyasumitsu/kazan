@@ -4,4 +4,6 @@
 .employee_dashboard_btn a { margin-right: 15px; }
 .row.justify-content-between.align-items-center { margin: 0px 0px; }
 element.style { } .employee_dashboard_border { } .employee_dashboard_border { border: 2px solid #343434; padding: 20px; margin-bottom: 50px; border-bottom-left-radius: 8px; border-bottom-right-radius: 8px; }
-.employee_dashboard_border p { border: 2px solid #bfbfbf; border-radius: 5px; padding: 10px; background: #fff; }
+.employee_dashboard_border p { border: 2px solid #bfbfbf; border-radius: 5px; padding: 10px; background: #fff; min-height: 45px; }
+.employee_dashboard_btn h4 { padding: 0; color: #fff; margin: 0; }
+.request_box_data { padding: 0; }

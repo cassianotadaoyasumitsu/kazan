@@ -1,33 +1,48 @@
-<%= simple_form_for [@user, @request] do |f| %>
-<%= f.input :kind_of %>
-<%= f.input :amount %>
-<%= f.input :request_date %>
-<%= f.input :request_reason %>
-<%= f.input :ref, input_html: {value: current_user.ref } %>
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-  Criar
-</button>
+<div class="container">
+  <div class="employee_dashboard">
 
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Termo de Conconrdancia</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+    <h4>New request</h4>
+
+    <div class="employee_dashboard_btn">
+      <%= link_to users_path do %>
+      <i class="fas fa-chevron-circle-left"></i> Back
+      <% end %>
+    </div>
+
+    <div class="employee_dashboard_border">
+      <%= simple_form_for [@user, @request] do |f| %>
+      <%= f.input :kind_of %>
+      <%= f.input :amount %>
+      <%= f.input :request_date %>
+      <%= f.input :request_reason %>
+      <%= f.input :ref, input_html: {value: current_user.ref } %>
+      <!-- Button trigger modal -->
+      <button type="button" class="btn btn-primary add-btn" data-toggle="modal" data-target="#exampleModal">
+        Create
+      </button>
+
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Termo de Conconrdancia</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              Li e concordo com tudo que a empreiteira quiser TAOK!?
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <%= f.submit class: 'btn btn-primary' %>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="modal-body">
-        Li e concordo com tudo que a empreiteira quiser TAOK!?
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <%= f.submit class: 'btn btn-primary' %>
-      </div>
+
+      <% end %>
     </div>
   </div>
 </div>
-
-<% end %>

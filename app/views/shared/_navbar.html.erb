@@ -8,7 +8,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <% if user_signed_in? %>
-    <p style="color: white;"><%= current_user.name %></p>
+    <p class="navbar_user_name"><%= current_user.name %></p>
     <% end %>
 
 
@@ -46,7 +46,7 @@
         </li>
         <% else %>
         <li class="nav-item">
-          <%= link_to "User", new_user_session_path, class: "nav-link" %>
+          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
         </li>
         <% end %>
       </ul>
