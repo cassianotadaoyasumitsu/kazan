@@ -25,7 +25,7 @@ company = Company.create(
     address: 'Yokohama')
 puts 'Finished'
 
-puts 'Create a new user...admin@kazan.com, password is "admin".'
+puts 'Create a new user...admin@kazan.com, password is "kazan_admin".'
 kazan_admin = User.create(
   name: 'kazan_admin',
   email: 'kazan_admin@kazan.com',
