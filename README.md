@@ -1,4 +1,5 @@
 #Kazan.app
+https://www.kazan.app/
 Administrate your enployees and your requests.
 Simple like that.
 
@@ -65,3 +66,4 @@ Back-end: Cassiano Yasumitsu & Farrah
 Front-end: Felipe Ito
 
 ### Kazan - Keep all Control.
+https://www.kazan.app/
