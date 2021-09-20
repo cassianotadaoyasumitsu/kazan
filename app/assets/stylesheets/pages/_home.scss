@@ -1,5 +1,5 @@
 // Specific CSS for your home-page
 
-section#Home { width: 100vw; height: 91vh; background-image: url(background_home.jpg); background-repeat: no-repeat; background-attachment: fixed; background-position: top center; background-size: cover; }
+section#Home { width: 100vw; height: 91vh; background-image: asset-url('background_home.jpg'); background-repeat: no-repeat; background-attachment: fixed; background-position: top center; background-size: cover; }
 .Home_container { display: flex; justify-content: center; align-items: center; justify-items: center; width: 100%; height: 91vh; }
 .home_logo { max-width: 250px; }
