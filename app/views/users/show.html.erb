@@ -4,7 +4,7 @@
     <h4><%= @user.name %></h4>
 
     <div class="employee_dashboard_btn">
-      <%= link_to root_path do %>
+      <%= link_to users_path do %>
       <i class="fas fa-chevron-circle-left"></i> Back
       <% end %>
       <%= link_to edit_user_path(current_user) do %>
@@ -78,7 +78,7 @@
             <div class="request_box_data col-3">
               <p><%= request.created_at %></p>
             </div>
-            
+
           </div>
       <% end -%>
     </div>
