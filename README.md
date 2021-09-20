@@ -7,26 +7,21 @@ Follow all steps to run the application locally.
 To set up Basic Data, please run:
 
 ### Access the directory
-
 ```bash
 cd kazan
 ```
 
 ### Install Bundle
-
 ```bash
 Bundle install
 ```
 
 ### Install or upgrade Yarn
-
 To install:
 ```bash
 npm install --global yarn
 ```
-
 or
-
 To upgrade:
 ```bash
 yarn upgrade
@@ -57,7 +52,7 @@ rails db:seed
 rails s
 ```
 
-### The last result should show: "All Done", if you have any problem, feel free to ask
+### The last result should show: "All Done", if you have any problem, feel free to run
 ```bash
 rails db:drop
 ```
@@ -65,8 +60,8 @@ rails db:drop
 
 
 ### Credits
-Back-end: Cassiano & Farrah
+Rails app: Cassiano Yasumitsu
+Back-end: Cassiano Yasumitsu & Farrah
 Front-end: Felipe Ito
-Rails app: Cassiano
 
 ### Kazan - Keep all Control.
