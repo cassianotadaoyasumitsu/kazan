@@ -20,5 +20,10 @@ module Kazan
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
+
+    config.action_dispatch.default_headers = {
+      "X-XSS-Protection" => "1; mode=block",
+      "X-Content-Type-Options" => "nosniff"
+    }
   end
 end
