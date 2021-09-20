@@ -14,4 +14,6 @@ rails db:seed
 
 The last result should show: "All Done", if you have any problem, feel free to ask
 
+* rails db:drop (if needed)
+
 
