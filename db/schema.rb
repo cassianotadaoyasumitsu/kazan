@@ -10,23 +10,38 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_12_064013) do
+ActiveRecord::Schema.define(version: 2021_09_20_122347) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "companies", force: :cascade do |t|
+    t.string "name"
+    t.string "owner"
+    t.string "phone"
+    t.string "email"
+    t.string "address"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "requests", force: :cascade do |t|
-    t.string "kind_of"
+    t.string "name"
     t.string "amount"
     t.date "request_date"
     t.text "request_reason"
-    t.boolean "confirm", default: false
-    t.boolean "deny", default: false
+    t.string "status"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "ref"
     t.index ["user_id"], name: "index_requests_on_user_id"
+  end
+
+  create_table "roles", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -35,16 +50,11 @@ ActiveRecord::Schema.define(version: 2021_09_12_064013) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.boolean "company"
-    t.boolean "tantosha"
-    t.boolean "employee"
-    t.string "roles"
     t.string "name"
     t.string "furigana"
     t.string "address"
     t.string "phone"
     t.string "factory"
-    t.string "role"
     t.string "job_exp"
     t.string "pay_number"
     t.date "started_date"
@@ -60,9 +70,19 @@ ActiveRecord::Schema.define(version: 2021_09_12_064013) do
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "admin"
     t.string "ref"
+    t.bigint "company_id", null: false
+    t.index ["company_id"], name: "index_users_on_company_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "users_roles", id: false, force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "role_id"
+    t.index ["role_id"], name: "index_users_roles_on_role_id"
+    t.index ["user_id"], name: "index_users_roles_on_user_id"
+  end
+
   add_foreign_key "requests", "users"
+  add_foreign_key "users", "companies"
 end

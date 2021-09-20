@@ -6,8 +6,16 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   resources :users do
-    resources :requests
+    resources :requests,only: [ :index, :new, :create,:edit,:update ]
   end
 
-  resources :requests
+  resources :companies do
+    resources :users,only: [ :index,:show ]
+
+    resources :users do
+      resources :requests,only: [ :index, :edit,:update ]
+    end
+
+  end
+
 end
