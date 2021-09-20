@@ -1,2 +1,3 @@
 class RoleRelation < ApplicationRecord
+  
 end
