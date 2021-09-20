@@ -19,12 +19,27 @@ class RequestsController < ApplicationController
     end
   end
 
-  def destroy
-    @request = Request.find(params[:id])
-    @user = @request.user_id
-    @request.destroy
-    redirect_to users_path(@request.user)
+  def edit
+   @request = Request.find(params[:id])
   end
+
+  def update
+    @request = Request.find(params[:id])
+    @request.user = @user
+    if @request.update(request_params)
+      redirect_to user_path(@user)
+    else
+      render :edit
+    end
+  end
+
+  # def destroy
+  #   @request = Request.find(params[:id])
+  #   @user = @request.user_id
+  #   @request.destroy
+  #   redirect_to users_path(@request.user)
+  # end
+  # user can only change status instead of real delete.
 
   private
 
