@@ -5,15 +5,19 @@ class RequestsController < ApplicationController
     @requests = Request.all
   end
 
+  def show
+    @request = Request.find(current_user)
+  end
+
   def new
     @request = Request.new
   end
 
   def create
     @request = Request.new(request_params)
-    @request.user = @user
+    @request.user = current_user
     if @request.save
-      redirect_to user_path(@user)
+      redirect_to user_path(current_user)
     else
       render :new
     end
@@ -48,6 +52,6 @@ class RequestsController < ApplicationController
   end
 
   def request_params
-    params.require(:request).permit(:kind_of, :amount, :request_date, :request_reason, :ref)
+    params.require(:request).permit(:name, :amount, :request_date, :request_reason, :ref)
   end
 end
