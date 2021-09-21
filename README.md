@@ -1,6 +1,8 @@
-#Kazan.app
+# Kazan.app
 https://www.kazan.app/
+
 Administrate your enployees and your requests.
+
 Simple like that.
 
 ## To start
@@ -62,7 +64,9 @@ rails db:drop
 
 ### Credits
 Rails app: Cassiano Yasumitsu
+
 Back-end: Cassiano Yasumitsu & Farrah
+
 Front-end: Felipe Ito
 
 ### Kazan - Keep all Control.
