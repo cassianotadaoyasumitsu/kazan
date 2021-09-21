@@ -15,7 +15,6 @@
       <%= f.input :amount, collection: Request::AMOUNT %>
       <%= f.input :request_date %>
       <%= f.input :request_reason %>
-      <%= f.input :status, collection: Request::STATUS  %>
       <%= f.input :ref, input_html: {value: current_user.ref } %>
       <!-- Button trigger modal -->
       <button type="button" class="btn btn-primary add-btn" data-toggle="modal" data-target="#exampleModal">

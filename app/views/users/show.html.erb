@@ -1,6 +1,5 @@
 <div class="container">
   <div class="employee_dashboard">
-    <%= link_to 'Requests', user_requests_path(current_user) %>
 
     <h4><%= @user.name %></h4>
 
@@ -27,7 +26,7 @@
     </div>
 
     <div class="employee_dashboard_btn">
-      <h4>Requests</4>
+      <h4>Requests</h4>
         <%= link_to new_user_request_path(current_user) do %>
         <p>Icone New Request</p>
         <% end %>
