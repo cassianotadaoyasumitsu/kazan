@@ -1,5 +1,6 @@
 <div class="container">
   <div class="employee_dashboard">
+    <%= link_to 'Requests', user_requests_path(current_user) %>
 
     <h4><%= @user.name %></h4>
 
@@ -13,12 +14,8 @@
     </div>
 
     <div class="employee_dashboard_border">
-      <%# <label>REF</label> %>
-      <%# <p><%= @user.ref </p> %>
       <label>Name</label>
       <p><%= @user.name %></p>
-      <%# <label>Furigana</label> %>
-      <%# <p><%= @user.furigana</p> %>
       <label>Adresses</label>
       <p><%= @user.address %></p>
       <label>Phone</label>
@@ -27,60 +24,41 @@
       <p><%= @user.email %></p>
       <label>Factory</label>
       <p><%= @user.factory %></p>
-      <%# <label>Role</label> %>
-      <%# <p><%= @user.role </p> %>
-      <%# <label>Job exp</label> %>
-      <%# <p><%= @user.job_exp </p> %>
-      <%# <label>Pay number</label> %>
-      <%# <p><%= @user.pay_number </p> %>
-      <%# <label>Started date</label> %>
-      <%# <p><%= @user.started_date </p> %>
-      <%# <label>Licence1</label> %>
-      <%# <p><%= @user.licence1 </p> %>
-      <%# <label>Healthy exam</label> %>
-      <%# <p><%= @user.healthy_exam </p> %>
-      <%# <label>Drive licence</label> %>
-      <%# <p><%= @user.drive_licence </p> %>
-      <%# <label>Drive licence date</label> %>
-      <%# <p><%= @user.drive_licence_date </p> %>
-      <%# <label>Document</label> %>
-      <%# <p><%= @user.document </p> %>
-      <%# <label>Document date</label> %>
-      <%# <p><%= @user.document_date </p> %>
-      <%# <label>Passport</label> %>
-      <%# <p><%= @user.passport </p> %>
-      <%# <label>Passport date</label> %>
-      <%# <p><%= @user.passport_date </p> %>
     </div>
 
     <div class="employee_dashboard_btn">
-      <h4>Requests</h4>
-    </div>
+      <h4>Requests</4>
+        <%= link_to new_user_request_path(current_user) do %>
+        <p>Icone New Request</p>
+        <% end %>
+      </div>
 
-    <div class="employee_dashboard_border">
-      <% @user.requests.each do |request| %>
-          <div class="request_box">
-            <div class="request_box_data col-12">
-              <h5 class="request_title"><%= request.kind_of %></h5>
-            </div>
-            <div class="request_box_data col-3">
-              <p><%= request.amount %>円</p>
-            </div>
 
-            <div class="request_box_data col-3">
-              <p><%= request.request_reason %></p>
-            </div>
 
-            <div class="request_box_data col-3">
-              <p><%= request.request_date %></p>
-            </div>
-
-            <div class="request_box_data col-3">
-              <p><%= request.created_at %></p>
-            </div>
-
+      <div class="employee_dashboard_border">
+        <% @user.requests.each do |request| %>
+        <div class="request_box">
+          <div class="request_box_data col-12">
+            <h5 class="request_title"><%= request.name %></h5>
           </div>
-      <% end -%>
+          <div class="request_box_data col-3">
+            <p><%= request.amount %>円</p>
+          </div>
+
+          <div class="request_box_data col-3">
+            <p><%= request.request_reason %></p>
+          </div>
+
+          <div class="request_box_data col-3">
+            <p><%= request.request_date %></p>
+          </div>
+
+          <div class="request_box_data col-3">
+            <p><%= request.created_at %></p>
+          </div>
+
+        </div>
+        <% end -%>
+      </div>
     </div>
   </div>
-</div>
