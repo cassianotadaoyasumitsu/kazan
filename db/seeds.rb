@@ -82,6 +82,27 @@ puts 'Add the roles to employee'
   kazan_employee.save
 puts 'All Done'
 
+puts 'Create roles, "director"'
+admin = Role.create(
+   name:'director'
+   )
+puts'Finished'
+
+puts 'Create a new user as director", email:"kazan_director@kazan.com", password"kazan_director"..'
+  kazan_mg = User.create(
+  name: 'kazan_director',
+  email: 'kazan_director@kazan.com',
+  password: 'kazan_director',
+  password_confirmation:'kazan_director',
+  company_id: Company.where(name:'Kazan').first.id)
+puts 'Finished'
+
+puts 'Add the roles to director'
+  kazan_director = User.where(name:'kazan_director').first
+  kazan_director.roles << Role.where(name:'director').first
+  kazan_director.save
+puts 'Finished'
+
 
 
 
