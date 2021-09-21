@@ -1,3 +1,10 @@
+puts 'Cleaning database'
+Request.destroy_all
+Role.destroy_all
+User.destroy_all
+Company.destroy_all
+puts 'Database cleaned.'
+
 puts 'Create roles, "admin"'
 admin = Role.create(
    name:'admin'
