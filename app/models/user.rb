@@ -5,6 +5,7 @@ class User < ApplicationRecord
   :recoverable, :rememberable, :validatable
 
   belongs_to :company
+  belongs_to :team
   has_many :requests
   has_and_belongs_to_many :roles
 

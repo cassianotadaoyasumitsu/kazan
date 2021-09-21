@@ -4,7 +4,7 @@ class Request < ApplicationRecord
   belongs_to :user
 
 
-  enum status: { applying: 0, approved: 1, canceled: 3, rejected: 5 }
+  enum status: { applying: 0, approved: 1, canceled: 2, rejected: 3 }
 
 end
 
