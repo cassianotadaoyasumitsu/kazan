@@ -3,7 +3,7 @@
     <div class="sidebar" data-color="purple" data-background-color="black">
       <div class="logo">
         <%= link_to "/", class: "dashboard_logo" do %>
-          <%= image_tag "kazan_logo.png", class: "img-responsive home_logo" %>
+        <%= image_tag "kazan_logo.png", class: "img-responsive home_logo" %>
         <% end %>
       </div>
       <div class="sidebar-wrapper">
@@ -16,20 +16,21 @@
           </li>
           <li class="nav-item ">
             <%= link_to user_path(current_user), class: "nav-link" do %>
-              <i class="fas fa-user"></i>
-              <p>My Profile</p>
+            <i class="fas fa-user"></i>
+            <p>My Profile</p>
             <% end %>
           </li>
           <li class="nav-item ">
-            <a class="nav-link" href="./tables.html">
+              <%= link_to users_path, class: "nav-link" do  %>
               <i class="fas fa-users"></i>
               <p>Employees</p>
+              <% end %>
             </a>
           </li>
           <li class="nav-item ">
             <%= link_to destroy_user_session_path, method: :delete, class: "nav-link" do %>
-              <i class="fas fa-sign-out-alt"></i>
-              <p>Log out</p>
+            <i class="fas fa-sign-out-alt"></i>
+            <p>Log out</p>
             <% end %>
           </li>
         </ul>
@@ -104,13 +105,14 @@
                     <i class="fas fa-users"></i>
                   </div>
                   <p class="card-category">Employees</p>
-                  <h3 class="card-title">20
+                  <h3 class="card-title">
+                    <%= @users.count  %>
                     <small>users</small>
                   </h3>
                 </div>
                 <div class="card-footer">
                   <div class="stats">
-                    20 employees
+                    All employees
                   </div>
                 </div>
               </div>
@@ -128,7 +130,7 @@
                 </div>
                 <div class="card-footer">
                   <div class="stats">
-                    20 tantoshas
+                    All tantoshas
                   </div>
                 </div>
               </div>
@@ -140,7 +142,8 @@
                     <i class="fas fa-tasks"></i>
                   </div>
                   <p class="card-category">Requests</p>
-                  <h3 class="card-title">20
+                  <h3 class="card-title">
+                    <%= @requests.count %>
                     <small>requests</small>
                   </h3>
                 </div>
@@ -174,42 +177,26 @@
             <div class="col-lg-6 col-md-12">
               <div class="card">
                 <div class="card-header card-header-primary">
-                  <h4 class="card-title">Employees Stats</h4>
-                  <p class="card-category">New employees on 15th September, 2016</p>
+                  <h4 class="card-title">Employees</h4>
+                  <p class="card-category">List of last employees.</p>
                 </div>
                 <div class="card-body table-responsive">
                   <table class="table table-hover">
                     <thead class="text-warning">
                       <th>ID</th>
                       <th>Name</th>
-                      <th>Salary</th>
-                      <th>Country</th>
+                      <th>Phone</th>
+                      <th>Factory</th>
                     </thead>
+                    <% @users.each do |user| %>
                     <tbody>
                       <tr>
-                        <td>1</td>
-                        <td>Dakota Rice</td>
-                        <td>$36,738</td>
-                        <td>Niger</td>
+                        <td><%= user.id %></td>
+                        <td><%= user.name %></td>
+                        <td><%= user.phone %></td>
+                        <td><%= user.factory %></td>
                       </tr>
-                      <tr>
-                        <td>2</td>
-                        <td>Minerva Hooper</td>
-                        <td>$23,789</td>
-                        <td>Curaçao</td>
-                      </tr>
-                      <tr>
-                        <td>3</td>
-                        <td>Sage Rodriguez</td>
-                        <td>$56,142</td>
-                        <td>Netherlands</td>
-                      </tr>
-                      <tr>
-                        <td>4</td>
-                        <td>Philip Chaney</td>
-                        <td>$38,735</td>
-                        <td>Korea, South</td>
-                      </tr>
+                      <% end %>
                     </tbody>
                   </table>
                 </div>
@@ -220,23 +207,23 @@
                 <div class="card-header card-header-tabs card-header-warning">
                   <div class="nav-tabs-navigation">
                     <div class="nav-tabs-wrapper">
-                      <span class="nav-tabs-title">Tasks:</span>
+                      <span class="nav-tabs-title">Requests:</span>
                       <ul class="nav nav-tabs" data-tabs="tabs">
                         <li class="nav-item">
                           <a class="nav-link active" href="#profile" data-toggle="tab">
-                            <i class="material-icons">bug_report</i> Bugs
+                            <i class="material-icons">Pay leave</i>
                             <div class="ripple-container"></div>
                           </a>
                         </li>
                         <li class="nav-item">
                           <a class="nav-link" href="#messages" data-toggle="tab">
-                            <i class="material-icons">code</i> Website
+                            <i class="material-icons">Fouls</i>
                             <div class="ripple-container"></div>
                           </a>
                         </li>
                         <li class="nav-item">
                           <a class="nav-link" href="#settings" data-toggle="tab">
-                            <i class="material-icons">cloud</i> Server
+                            <i class="material-icons">Documents</i>
                             <div class="ripple-container"></div>
                           </a>
                         </li>
@@ -637,10 +624,10 @@
 
         });
       });
-    });
-  </script>
-  <script>
-    $(document).ready(function() {
+});
+</script>
+<script>
+  $(document).ready(function() {
       // Javascript method's body can be found in assets/js/demos.js
       md.initDashboardPageCharts();
 
