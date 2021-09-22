@@ -23,10 +23,20 @@ require("channels")
 // ----------------------------------------------------
 
 // External imports
+
 import "bootstrap";
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
+import { dashboard } from '../dashboard/material-dashboard';
+import { dashboard_bootstrap } from '../dashboard/core/bootstrap-material-design';
+import { dashboard_jquery } from '../dashboard/core/jquery';
+import { dashboard_popper } from '../dashboard/core/popper';
+import { dashboard_notify } from '../dashboard/plugins/bootstrap-notify';
+import { dashboard_chartist } from '../dashboard/plugins/chartist';
+import { dashboard_scrollbar } from '../dashboard/plugins/perfect-scrollbar.jquery.js';
+import { dashboard_unpkg } from '../dashboard/unpkg';
+
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
