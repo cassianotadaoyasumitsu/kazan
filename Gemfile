@@ -18,6 +18,9 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.7'
 # Use Redis adapter to run Action Cable in production
 gem 'redis', '~> 4.0'
+# Font-awesome
+gem 'font-awesome-sass', '~> 5.15.1'
+
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -33,7 +36,6 @@ gem 'rails_admin', '~> 2.0'
 gem 'tty-spinner'
 
 gem 'autoprefixer-rails', '10.2.5'
-gem 'font-awesome-sass'
 gem 'simple_form'
 group :development, :test do  gem 'pry-byebug'
   gem 'pry-rails'
