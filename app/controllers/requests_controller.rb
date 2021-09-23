@@ -1,5 +1,5 @@
 class RequestsController < ApplicationController
-  before_action :find_user, except: [:destroy, :index]
+  before_action :find_user, except: [:destroy]
 
   def index
     @requests = policy_scope(Request)
@@ -54,6 +54,7 @@ class RequestsController < ApplicationController
 
   def find_user
     @user = User.find(params[:user_id])
+    authorize(@user, :new?)
   end
 
   def request_params

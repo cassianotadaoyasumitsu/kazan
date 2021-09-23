@@ -5,6 +5,10 @@ class UserPolicy < ApplicationPolicy
     end
   end
 
+  def new?
+    user.admin? || record == user|| user.roles.where(name:"admin").exists?
+  end
+
   def index?
     return true unless user.roles.where(name:"employee").exists?
   end
