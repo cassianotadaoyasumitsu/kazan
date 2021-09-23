@@ -38,21 +38,21 @@ kazan_admin = User.create(
   email: 'kazan_admin@kazan.com',
   password: 'kazan_admin',
   password_confirmation:'kazan_admin',
-  company_id: Company.where(name:'Kazan').first.id,
-  team_id: Team.where(name: "Customer Success").first.id
+  company_id: Company.find_by(name:'Kazan').id,
+  team_id: Team.find_by(name: "Customer Success").id
   )
 puts 'Finished'
 
 puts 'Add the roles to admin'
-  admin_role = Role.where(name:'admin').first
-  kazan_admin = User.where(name:'kazan_admin').first
-  kazan_admin.roles << Role.where(name:'admin').first
+  admin_role = Role.find_by(name:'admin')
+  kazan_admin = User.find_by(name:'kazan_admin')
+  kazan_admin.roles << Role.find_by(name:'admin')
   kazan_admin.save
 puts 'Finished'
 
 
 puts 'Make admin@kazan.com as admin in the whole app.'
-user = User.where(email: 'kazan_admin@kazan.com').first
+user = User.find_by(email: 'kazan_admin@kazan.com')
 user.password = 'kazan_admin'
 user.admin = true
 user.save!
@@ -65,15 +65,15 @@ puts 'Create a new user as Kazan\'s manager", email:"kazan_manager@kazan.com", p
   email: 'kazan_manager@kazan.com',
   password: 'kazan_manager',
   password_confirmation:'kazan_manager',
-  company_id: Company.where(name:'Kazan').first.id,
-  team_id: Team.where(name: "Customer Success").first.id
+  company_id: Company.find_by(name:'Kazan').id,
+  team_id: Team.find_by(name: "Customer Success").id
   )
 puts 'Finished'
 
 puts 'Add the roles to manager'
-  manager_role = Role.where(name:'manager').first
-  kazan_manager = User.where(name:'kazan_manager').first
-  kazan_manager.roles << Role.where(name:'manager').first
+  manager_role = Role.find_by(name:'manager')
+  kazan_manager = User.find_by(name:'kazan_manager')
+  kazan_manager.roles << Role.find_by(name:'manager')
   kazan_manager.save
 puts 'Finished'
 
@@ -83,15 +83,15 @@ puts 'Create a new user as Kazan\'s employee1", email:"kazan_employee1@kazan.com
   email: 'kazan_employee1@kazan.com',
   password: 'kazan_employee1',
   password_confirmation:'kazan_employee1',
-  company_id: Company.where(name:'Kazan').first.id,
-  team_id: Team.where(name: "Customer Success").first.id
+  company_id: Company.find_by(name:'Kazan').id,
+  team_id: Team.find_by(name: "Customer Success").id
   )
 puts 'Finished'
 
 puts 'Add the roles to employee'
-  employee_role = Role.where(name:'employee').first
-  kazan_employee = User.where(name:'kazan_employee1').first
-  kazan_employee.roles << Role.where(name:'employee').first
+  employee_role = Role.find_by(name:'employee')
+  kazan_employee = User.find_by(name:'kazan_employee1')
+  kazan_employee.roles << Role.find_by(name:'employee')
   kazan_employee.save
 puts 'All Done'
 
@@ -107,14 +107,14 @@ puts 'Create a new user as director", email:"kazan_director@kazan.com", password
   email: 'kazan_director@kazan.com',
   password: 'kazan_director',
   password_confirmation:'kazan_director',
-  company_id: Company.where(name:'Kazan').first.id,
-  team_id: Team.where(name: "Customer Success").first.id
+  company_id: Company.find_by(name:'Kazan').id,
+  team_id: Team.find_by(name: "Customer Success").id
   )
 puts 'Finished'
 
 puts 'Add the roles to director'
-  kazan_director = User.where(name:'kazan_director').first
-  kazan_director.roles << Role.where(name:'director').first
+  kazan_director = User.find_by(name:'kazan_director')
+  kazan_director.roles << Role.find_by(name:'director')
   kazan_director.save
 puts 'Finished'
 

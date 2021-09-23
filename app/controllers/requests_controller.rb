@@ -1,20 +1,23 @@
 class RequestsController < ApplicationController
-  before_action :find_user, except: [:destroy, :index]
+  before_action :find_user, except: [:destroy]
 
   def index
-    @requests = Request.all
+    @requests = policy_scope(Request)
   end
 
   def show
     @request = Request.find(current_user)
+    authorize @request
   end
 
   def new
     @request = Request.new
+    authorize @request
   end
 
   def create
     @request = Request.new(request_params)
+    authorize @request
     @request.user = current_user
     if @request.save
       redirect_to user_path(current_user)
@@ -25,10 +28,12 @@ class RequestsController < ApplicationController
 
   def edit
    @request = Request.find(params[:id])
+   authorize @request
   end
 
   def update
     @request = Request.find(params[:id])
+    authorize @request
     @request.user = @user
     if @request.update(request_params)
       redirect_to user_path(@user)
@@ -49,6 +54,7 @@ class RequestsController < ApplicationController
 
   def find_user
     @user = User.find(params[:user_id])
+    authorize(@user, :new?)
   end
 
   def request_params

@@ -21,6 +21,8 @@ gem 'redis', '~> 4.0'
 # Font-awesome
 gem 'font-awesome-sass', '~> 5.15.1'
 
+gem 'pundit'
+
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
