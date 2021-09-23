@@ -38,7 +38,9 @@ kazan_admin = User.create(
   email: 'kazan_admin@kazan.com',
   password: 'kazan_admin',
   password_confirmation:'kazan_admin',
-  company_id: Company.where(name:'Kazan').first.id)
+  company_id: Company.where(name:'Kazan').first.id,
+  team_id: Team.where(name: "Customer Success").first.id
+  )
 puts 'Finished'
 
 puts 'Add the roles to admin'
@@ -63,7 +65,9 @@ puts 'Create a new user as Kazan\'s manager", email:"kazan_manager@kazan.com", p
   email: 'kazan_manager@kazan.com',
   password: 'kazan_manager',
   password_confirmation:'kazan_manager',
-  company_id: Company.where(name:'Kazan').first.id)
+  company_id: Company.where(name:'Kazan').first.id,
+  team_id: Team.where(name: "Customer Success").first.id
+  )
 puts 'Finished'
 
 puts 'Add the roles to manager'
@@ -79,7 +83,9 @@ puts 'Create a new user as Kazan\'s employee1", email:"kazan_employee1@kazan.com
   email: 'kazan_employee1@kazan.com',
   password: 'kazan_employee1',
   password_confirmation:'kazan_employee1',
-  company_id: Company.where(name:'Kazan').first.id)
+  company_id: Company.where(name:'Kazan').first.id,
+  team_id: Team.where(name: "Customer Success").first.id
+  )
 puts 'Finished'
 
 puts 'Add the roles to employee'
@@ -101,7 +107,9 @@ puts 'Create a new user as director", email:"kazan_director@kazan.com", password
   email: 'kazan_director@kazan.com',
   password: 'kazan_director',
   password_confirmation:'kazan_director',
-  company_id: Company.where(name:'Kazan').first.id)
+  company_id: Company.where(name:'Kazan').first.id,
+  team_id: Team.where(name: "Customer Success").first.id
+  )
 puts 'Finished'
 
 puts 'Add the roles to director'
