@@ -1,20 +1,24 @@
 class CompaniesController < ApplicationController
   def index
     @companies = Company.all
+    authorize @companies
   end
 
   def show
     @company = Company.find(params[:id])
-    @requests = Request.all
-    @users = User.all
+    authorize @company
+    @requests = policy_scope(Request)
+    @users = policy_scope(User)
   end
 
   def new
     @company = Company.new
+    authorize @company
   end
 
   def create
     @company = Company.new(company_params)
+    authorize @company
     if @company.save
       redirect_to companies_path
     else
@@ -24,10 +28,12 @@ class CompaniesController < ApplicationController
 
   def edit
     @company = Company.find(params[:id])
+    authorize @company
   end
 
   def update
     @company = Company.find(params[:id])
+    authorize @company
     if @company.update(company_params)
       redirect_to company_path(params[:id])
     else
@@ -37,6 +43,7 @@ class CompaniesController < ApplicationController
 
   def destroy
     @company = Company.find(params[:id])
+    authorize @company
     @company.destroy
     redirect_to companies_path
   end

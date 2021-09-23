@@ -18,4 +18,12 @@ Rails.application.routes.draw do
 
   end
 
+  resources :teams do
+    resources :users,only: [ :index,:show ]
+
+    resources :users do
+      resources :requests,only: [ :index, :edit,:update ]
+    end
+  end
+
 end
