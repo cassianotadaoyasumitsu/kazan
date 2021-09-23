@@ -1,10 +1,12 @@
 class CompaniesController < ApplicationController
   def index
-    @companies = company.all
+    @companies = Company.all
   end
 
   def show
     @company = Company.find(params[:id])
+    @requests = Request.all
+    @users = User.all
   end
 
   def new

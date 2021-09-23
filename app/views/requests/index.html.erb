@@ -1,1 +1,25 @@
+<div class="employee_dashboard_border">
+  <% @requests.each do |request| %>
+  <div class="request_box">
+    <div class="request_box_data col-12">
+      <h5 class="request_title"><%= request.name %></h5>
+    </div>
+    <div class="request_box_data col-3">
+      <p><%= request.amount %></p>
+    </div>
 
+    <div class="request_box_data col-3">
+      <p><%= request.request_reason %></p>
+    </div>
+
+    <div class="request_box_data col-3">
+      <p><%= request.request_date %></p>
+    </div>
+
+    <div class="request_box_data col-3">
+      <p><%= request.created_at %></p>
+    </div>
+
+  </div>
+  <% end %>
+</div>

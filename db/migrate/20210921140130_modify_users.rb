@@ -4,7 +4,7 @@ class ModifyUsers < ActiveRecord::Migration[6.0]
     users = User.all
 
     users.each do |u|
-      u.team_id = 1
+      u.team_id = Team.where(name: "Customer Success").first.id
       u.save!
     end
   end
