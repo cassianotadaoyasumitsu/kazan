@@ -4,3 +4,4 @@
 button.navbar-toggler { border: none; }
 .navbar_user_name { color: #fff; text-align: center; margin: 0; padding-left: 100px; }
 .navbar_user_name::before { content: ''; display: inline-block; width: 10px; height: 10px; border-radius: 7.5px; background-color: #34c56e; margin-right: 5px; }
+a.nav-link { text-transform: uppercase; font-size: 14px; }
