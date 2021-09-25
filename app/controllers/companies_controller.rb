@@ -1,6 +1,6 @@
 class CompaniesController < ApplicationController
   def index
-    @companies = Company.all
+    @companies = policy_scope(Company)
     authorize @companies
   end
 
