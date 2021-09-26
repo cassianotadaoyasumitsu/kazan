@@ -1,45 +1,5 @@
   <div class="wrapper ">
-    <div class="sidebar" data-color="purple" data-background-color="black">
-      <div class="logo">
-        <%= link_to "/", class: "dashboard_logo" do %>
-        <%= image_tag "kazan_logo.png", class: "img-responsive home_logo" %>
-        <% end %>
-      </div>
-      <div class="sidebar-wrapper">
-        <ul class="nav">
-          <li class="nav-item">
-            <%= link_to company_path(current_user.company_id), class: "nav-link" do %>
-            <i class="fas fa-border-style"></i>
-            <p>Dashboard</p>
-            <% end %>
-          </li>
-          <li class="nav-item">
-            <%= link_to user_path(current_user), class: "nav-link" do %>
-            <i class="fas fa-user"></i>
-            <p>My Profile</p>
-            <% end %>
-          </li>
-          <li class="nav-item">
-            <%= link_to users_path, class: "nav-link" do  %>
-            <i class="fas fa-users"></i>
-            <p>Employees</p>
-            <% end %>
-          </li>
-          <li class="nav-item active">
-            <%= link_to user_requests_path(current_user), class: "nav-link" do  %>
-            <i class="fas fa-hand-holding-heart"></i>
-            <p>Requests</p>
-            <% end %>
-          </li>
-          <li class="nav-item ">
-            <%= link_to destroy_user_session_path, method: :delete, class: "nav-link" do %>
-            <i class="fas fa-sign-out-alt"></i>
-            <p>Log out</p>
-            <% end %>
-          </li>
-        </ul>
-      </div>
-    </div>
+    <%= render 'shared/sidebar' %>
     <div class="main-panel">
       <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top " id="navigation-example">
         <div class="container-fluid">
