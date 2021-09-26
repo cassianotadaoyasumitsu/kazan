@@ -1,4 +1,3 @@
-<body class="dark-edition">
   <div class="wrapper ">
     <%= render 'shared/sidebar' %>
     <div class="main-panel">
@@ -25,12 +24,9 @@
             </form>
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link" href="javascript:void(0)">
-                  Dashboard
-                  <p class="d-lg-none d-md-block">
-                    Stats
-                  </p>
-                </a>
+                  <%= link_to new_user_path, class:"nav-link" do  %>
+                  Create Employee
+                  <% end %>
               </li>
               <li class="nav-item dropdown">
                 <a class="nav-link" href="javscript:void(0)" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -275,4 +271,3 @@
 
     });
   </script>
-</body>
