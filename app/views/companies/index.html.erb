@@ -1,4 +1,48 @@
-<%= render 'shared/navbar' %>
-Admin  can see this page after login
-<br>
-* Show all companies
+<div class="wrapper ">
+  <%= render 'shared/sidebar' %>
+    <div class="main-panel">
+    <%= render 'shared/main_navbar', navbar_brand: "Companies" %>
+      <div class="content">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="card">
+                <div class="card-header card-header-primary card-header-red">
+                  <h4 class="card-title">Companies</h4>
+                  <p class="card-category">List of last companies.</p>
+                </div>
+                <div class="card-body table-responsive">
+                  <table class="table table-hover">
+                    <thead class="text-warning">
+                      <th>Company</th>
+                      <th>Owner</th>
+                      <th>Phone</th>
+                      <th>Address</th>
+                    </thead>
+                    <% @companies.each do |company| %>
+                    <tbody>
+                      <tr>
+                        <td><%= company.name %></td>
+                        <td><%= company.owner %></td>
+                        <td><%= company.phone %></td>
+                        <td><%= company.address %></td>
+                        <td><%= link_to edit_company_path(company) do %><i class="fas fa-edit"></i> <% end %></td>
+                        <td><%= link_to company_path(company), method: :delete,data: { confirm: "Are you sure?" } do %><i class="far fa-trash-alt"></i> <% end %></td>
+                      </tr>
+                      <% end %>
+                    </tbody>
+
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+<footer class="footer">
+  <div class="container-fluid">
+    <div class="copyright" id="date">
+    Kazan - Keep all control
+    </div>
+  </div>
+</footer>
