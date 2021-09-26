@@ -9,4 +9,16 @@ class User < ApplicationRecord
   has_many :requests
   has_and_belongs_to_many :roles
 
+  def role_name
+    roles = self.roles
+    roles.each do |role|
+      case role.name
+        when 'admin' then return 'admin'
+        when 'manager' then return 'manager'
+        when 'director' then return 'director'
+        else return 'employee'
+      end
+    end
+  end
+
 end
