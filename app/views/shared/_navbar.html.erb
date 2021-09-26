@@ -14,12 +14,42 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
-        <% if user_signed_in? %>
+        <% if user_signed_in? && current_user.role_name == "admin" %>
+        <li class="nav-item">
+          <%= link_to "Admin", user_path(current_user), class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Dashboard", company_path(current_user.company_id), class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link" %>
+        </li>
+        <% elsif user_signed_in? && current_user.role_name == "director" %>
+        <li class="nav-item">
+          <%= link_to "Company", user_path(current_user), class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Dashboard", company_path(current_user.company_id), class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link" %>
+        </li>
+        <% elsif user_signed_in? && current_user.role_name == "manager" %>
+        <li class="nav-item">
+          <%= link_to "Manager", user_path(current_user), class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Dashboard", company_path(current_user.company_id), class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link" %>
+        </li>
+        <% elsif user_signed_in? && current_user.role_name == "employee" %>
         <li class="nav-item">
           <%= link_to "Profile", user_path(current_user), class: "nav-link" %>
         </li>
         <li class="nav-item">
-          <%= link_to "Dashboard", company_path(current_user.company_id), class: "nav-link" %>
+          <%= link_to "Requests", company_path(current_user.company_id), class: "nav-link" %>
         </li>
         <li class="nav-item">
           <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link" %>
