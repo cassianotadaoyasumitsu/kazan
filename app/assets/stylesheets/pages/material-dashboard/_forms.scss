@@ -149,9 +149,6 @@ form {
     }
   [class^='bmd-label'],
   [class*=' bmd-label'] {
-    position: absolute;
-    pointer-events: none;
-    transition: 0.3s ease all;
 
     // hint to browser for optimization
     &.bmd-label-floating {

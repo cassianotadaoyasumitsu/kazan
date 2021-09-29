@@ -15,11 +15,8 @@
   }
 
   .notification {
-    background: $sidebar-primary-button-active;
-    border: $border-badge-notification;
-    height: $height-badge-notification;
-    min-width: $height-badge-notification;
-    right: $right-position + 12px;
+    right: -5px;
+    top: 0;
   }
 
   .navbar-toggler .icon-bar {

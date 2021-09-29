@@ -2,7 +2,7 @@
 
   &,
   &.btn-default {
-    @include bmd-raised-button-variant($btn-default-color, $dark-btn-default-bg, $dark-btn-default-border-color);
+    background: #db2803;
   }
 
   &.btn-primary {
