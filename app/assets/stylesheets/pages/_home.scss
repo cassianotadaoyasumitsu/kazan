@@ -3,3 +3,20 @@
 section#Home { width: 100vw; height: 92vh; background-image: asset-url('background_home.jpg'); background-repeat: no-repeat; background-attachment: fixed; background-position: top center; background-size: cover; }
 .Home_container { display: flex; justify-content: center; align-items: center; justify-items: center; width: 100%; height: 91vh; }
 .home_logo { max-width: 250px; }
+
+section#features { text-align: center; font-size: 30px; padding: 50px 0px 50px; background: #fff; }
+
+section#dash { padding: 50px 0px 25px; }
+.dash-info { height: auto; display: flex; align-items: center; justify-content: center; }
+.dash-preview { width: 100%; }
+
+section#break1 { background: asset-url('background_autenticates.jpg'); background-repeat: no-repeat; background-attachment: fixed; background-position: center; background-size: cover; position: relative; padding: 100px 0px 100px; color: #fff; }
+
+footer { padding: 100px 0px 100px; background: #000000; text-align: center; }   
+.footer-sns { display: flex; align-items: center; justify-content: center; }
+.footer-sns-links a { font-size: 30px; margin: 20px; }
+.footer-menu li { list-style: none; }
+.footer-menu { display: flex; align-items: center; justify-content: center; text-align: left; }
+
+section#copyright p { margin: 0; color: #fff; font-size: 14px; font-weight: 800; text-align: center; }
+section#copyright { background: #2e2e2e; padding: 8px 0px 8px; }
