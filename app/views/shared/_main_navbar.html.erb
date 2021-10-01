@@ -20,11 +20,19 @@
         </div>
       </form>
       <ul class="navbar-nav">
+        <% if current_user.role_name == "employee" %>
+        <li class="nav-item">
+            <%= link_to new_user_request_path(current_user), class:"nav-link" do  %>
+            Create Request
+            <% end %>
+        </li>
+        <% else %>
         <li class="nav-item">
             <%= link_to new_user_path, class:"nav-link" do  %>
             Create Employee
             <% end %>
         </li>
+        <% end %>
         <li class="nav-item dropdown">
           <a class="nav-link" href="javscript:void(0)" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             notifications
