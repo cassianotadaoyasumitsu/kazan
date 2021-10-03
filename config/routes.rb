@@ -11,19 +11,11 @@ Rails.application.routes.draw do
 
   resources :companies do
     resources :users,only: [ :index,:show ]
-
-    resources :users do
-      resources :requests,only: [ :index, :edit,:update ]
-    end
-
+    resources :requests,only: [ :index, :edit,:update ]
   end
 
   resources :teams do
     resources :users,only: [ :index,:show ]
-
-    resources :users do
-      resources :requests,only: [ :index, :edit,:update ]
-    end
+    resources :requests,only: [ :index, :edit,:update ]
   end
-
 end
