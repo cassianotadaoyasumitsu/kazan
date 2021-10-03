@@ -6,31 +6,62 @@
       </div>
       <div class="sidebar-wrapper">
         <ul class="nav">
-          <li class="nav-item active">
-            <%= link_to company_path(current_user.company_id), class: "nav-link" do %>
+          <li class="nav-item <%= 'active' if current_page?(company_requests_path(current_user.company_id)) %>">
+            <%= link_to company_requests_path(current_user.company_id), class: "nav-link" do %>
             <i class="fas fa-border-style"></i>
             <p>Dashboard</p>
             <% end %>
           </li>
-          <li class="nav-item ">
+          <li class="nav-item <%= 'active' if current_page?(user_path(current_user)) %>">
             <%= link_to user_path(current_user), class: "nav-link" do %>
             <i class="fas fa-user"></i>
             <p>My Profile</p>
             <% end %>
           </li>
-          <li class="nav-item ">
+          <li class="nav-item <%= 'active' if current_page?(users_path) %>">
             <%= link_to users_path, class: "nav-link" do  %>
             <i class="fas fa-users"></i>
             <p>Employees</p>
             <% end %>
           </li>
-          <li class="nav-item ">
-            <%= link_to user_requests_path(current_user), class: "nav-link" do  %>
+          <!-- admin's additional side bar-->
+          <% if user_signed_in? && current_user.role_name == "admin" %>
+          <li class="nav-item  <%= 'active' if current_page?(requests_path)%> ">
+            <%= link_to requests_path, class: "nav-link" do  %>
             <i class="fas fa-hand-holding-heart"></i>
-            <p>Requests</p>
+            <p>All Requests</p>
             <% end %>
           </li>
-          <li class="nav-item ">
+
+          <!-- director's additional side bar-->
+          <% elsif user_signed_in? && current_user.role_name == "director" %>
+          <li class="nav-item <%= 'active' if current_page?(company_requests_path(current_user.company_id))%> ">
+            <%= link_to company_requests_path(current_user.company_id), class: "nav-link" do  %>
+            <i class="fas fa-hand-holding-heart"></i>
+            <p>Companies's Requests</p>
+            <% end %>
+          </li>
+
+          <!-- manager's additional side bar-->
+          <% elsif user_signed_in? && current_user.role_name == "manager" %>
+          <li class="nav-item <%= 'active' if current_page?(team_requests_path(current_user.team_id))%>">
+            <%= link_to team_requests_path(current_user.team_id), class: "nav-link" do  %>
+            <i class="fas fa-hand-holding-heart"></i>
+            <p>Team's Requests</p>
+            <% end %>
+          </li>
+          <% else %>
+          <% end %>
+
+           <!-- side bar for all-->
+           <li class="nav-item <%= 'active' if current_page?(user_requests_path(current_user))%>">
+            <%= link_to user_requests_path(current_user), class: "nav-link" do  %>
+            <i class="fas fa-hand-holding-heart"></i>
+            <p>My Requests</p>
+            <% end %>
+          </li>
+
+          <li class="nav-item <%='active' if current_page?(destroy_user_session_path)%>">
             <%= link_to destroy_user_session_path, method: :delete, class: "nav-link" do %>
             <i class="fas fa-sign-out-alt"></i>
             <p>Log out</p>

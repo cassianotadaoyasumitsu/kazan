@@ -8,6 +8,8 @@ class RequestsController < ApplicationController
       @requests = policy_scope(Request).where(team_id: params[:team_id])
     elsif params[:company_id].present?
       @requests = policy_scope(Request).where(company_id: params[:company_id])
+    elsif current_user.role_name == "admin"
+      @requests = policy_scope(Request)
     else
       flash[:alert] = "Somthing goes wrong, please contact your tech department."
       redirect_to(root_path)
