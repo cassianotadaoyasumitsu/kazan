@@ -31,7 +31,7 @@ class RequestsController < ApplicationController
     authorize @request
     @request.user = current_user
     @request.company_id = current_user.company_id
-    @request.team_id = current_user.tram
+    @request.team_id = current_user.team_id
 
     if @request.save
       redirect_to user_path(current_user)
