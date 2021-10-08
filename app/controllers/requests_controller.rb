@@ -1,12 +1,23 @@
 class RequestsController < ApplicationController
-  before_action :find_user, except: [:destroy]
+  before_action :find_user, except: [:index,:destroy]
 
   def index
-    @requests = policy_scope(Request)
+    if params[:user_id].present?
+      @requests = policy_scope(Request).where(user_id: params[:user_id])
+    elsif params[:team_id].present?
+      @requests = policy_scope(Request).where(team_id: params[:team_id])
+    elsif params[:company_id].present?
+      @requests = policy_scope(Request).where(company_id: params[:company_id])
+    elsif current_user.role_name == "admin"
+      @requests = policy_scope(Request)
+    else
+      flash[:alert] = "Somthing goes wrong, please contact your tech department."
+      redirect_to(root_path)
+    end
   end
 
   def show
-    @request = Request.find(current_user)
+    @request = Request.find(params[:id])
     authorize @request
   end
 
@@ -19,6 +30,9 @@ class RequestsController < ApplicationController
     @request = Request.new(request_params)
     authorize @request
     @request.user = current_user
+    @request.company_id = current_user.company_id
+    @request.team_id = current_user.team_id
+
     if @request.save
       redirect_to user_path(current_user)
     else
@@ -58,6 +72,6 @@ class RequestsController < ApplicationController
   end
 
   def request_params
-    params.require(:request).permit(:name, :amount, :request_date, :request_reason, :status, :ref)
+    params.require(:request).permit(:name, :amount, :request_date, :request_reason, :status, :ref, :company_id, :team_id)
   end
 end
