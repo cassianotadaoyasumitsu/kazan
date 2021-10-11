@@ -1,0 +1,11 @@
+<p>Dear <%= @user.name %>,</p>
+<p>  Welcome to this site. Your account has successfully been created. </p>
+<p>  Please Login to your account</a> using these credentials: </p>
+<ul>
+  <li>Username: <%= @user.email %></li>
+  <li>Password: <%= @user.password %></li>
+  <li>Team: <%= @user.team.name %></li>
+  <li>Role: <%= @user.role_name %></li>
+</ul>
+
+<p>Please change your passwords as soon as possible after your first login.</p>

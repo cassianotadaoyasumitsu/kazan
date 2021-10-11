@@ -20,7 +20,8 @@ gem 'jbuilder', '~> 2.7'
 gem 'redis', '~> 4.0'
 # Font-awesome
 gem 'font-awesome-sass', '~> 5.15.1'
-
+#mail
+gem 'letter_opener', group: :development
 gem 'pundit'
 
 # Use Active Model has_secure_password

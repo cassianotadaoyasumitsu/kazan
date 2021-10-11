@@ -56,12 +56,23 @@
                   <%= simple_form_for(@user) do |f| %>
                   <%= f.input :name, default: "" %>
                   <%= f.input :phone %>
-                  <%= f.input :email %>
+                  <%= f.input :email,
+                     required: true,
+                     autofocus: true,
+                     input_html: { autocomplete: "email" }%>
                   <% if @user.persisted? %>
                   <% else %>
-                  <%= f.input :password %>
+                  <%= f.input :password,
+                    required: true,
+                    hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                    input_html: { autocomplete: "new-password" } %>
                   <% end %>
-                  <%= f.input :factory %>
+                  <%= f.input :password_confirmation,
+                    required: true,
+                    input_html: { autocomplete: "new-password" } %>
+                  <%= f.association :team, as: :select, input_html: {class:'select2'}, collection: Team.all, label_method: :name  %>
+                  <%= f.association :roles, as: :select, input_html: {class:'select2'}, collection: Role.all, label_method: :name  %>
+                  <%= f.hidden_field :company_id, value: current_user.company_id %>
                   <%= f.submit 'Add', class: 'btn btn-secondary add-btn' %>
                   <% end %>
                 </div>
@@ -253,53 +264,4 @@
 
     });
   </script>
-
-
-
-
-<div class="container">
-  <div class="employee_dashboard">
-
-    <h4>New user</h4>
-
-    <div class="employee_dashboard_btn">
-      <%= link_to company_path(current_user.company_id) do %>
-      <i class="fas fa-chevron-circle-left"></i> Back
-      <% end %>
-      <%= link_to new_user_path, class: 'user_dashboard_link' do %>
-      <i class="fas fa-plus-circle"></i> New user
-      <% end %>
-    </div>
-
-    <div class="employee_dashboard_border">
-      <%= simple_form_for(@user) do |f| %>
-      <%= f.input :name, label: 'Name' %>
-      <%# <%= f.input :furigana %>
-      <%# <%= f.input :address %>
-      <%= f.input :phone %>
-      <%= f.input :email %>
-      <% if @user.persisted? %>
-      <% else %>
-      <%= f.input :password %>
-      <% end %>
-      <%= f.input :factory %>
-      <%# <%= f.input :role %>
-      <%# <%= f.input :job_exp %>
-      <%# <%= f.input :pay_number %>
-      <%# <%= f.input :started_date %>
-      <%# <%= f.input :licence1, as: :boolean %>
-      <%# <%= f.input :healthy_exam %>
-      <%# <%= f.input :drive_licence %>
-      <%# <%= f.input :drive_licence_date %>
-      <%# <%= f.input :document %>
-      <%# <%= f.input :document_date %>
-      <%# <%= f.input :passport %>
-      <%# <%= f.input :passport_date %>
-      <%= f.submit 'Add', class: 'btn btn-secondary add-btn' %>
-      <% end %>
-
-    </div>
-
-  </div>
-</div>
 </body>

@@ -4,6 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, #:registerable,
   :recoverable, :rememberable, :validatable
 
+  after_create :send_welcome_email
+
   belongs_to :company
   belongs_to :team
   has_many :requests
@@ -19,6 +21,13 @@ class User < ApplicationRecord
         else return 'employee'
       end
     end
+  end
+
+
+  private
+
+  def send_welcome_email
+    UserMailer.with(user: self).welcome.deliver_now
   end
 
 end

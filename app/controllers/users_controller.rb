@@ -19,7 +19,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     authorize @user
-    if @user.save
+    if @user.save!
       redirect_to users_path
     else
       render :new
@@ -56,6 +56,9 @@ class UsersController < ApplicationController
     :furigana,
     :address,
     :phone,
+    :email,
+    :password,
+    :password_confirmation,
     :factory,
     :job_exp,
     :pay_number,
@@ -69,7 +72,9 @@ class UsersController < ApplicationController
     :passport,
     :passport_date,
     :company_id,
-    :ref
+    :team_id,
+    :ref,
+    :role_ids => [],
     )
   end
 end
