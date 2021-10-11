@@ -7,7 +7,7 @@ class UserMailer < ApplicationMailer
   #
   def welcome
     @user = params[:user] # Instance variable => available in view
-    @bcc = User.joins(:roles).where(roles: {name: [:admin, :manager]}).pluck(:email)
+    @bcc = User.joins(:roles).where(roles: {name: [:director, :manager]}).pluck(:email)
     mail(
       to: @user.email,
       bcc: @bcc,
