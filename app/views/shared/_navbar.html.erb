@@ -56,7 +56,7 @@
           <%= link_to "Profile", user_path(current_user), class: "nav-link" %>
         </li>
         <li class="nav-item">
-          <%= link_to "Requests", company_path(current_user.company_id), class: "nav-link" %>
+          <%= link_to "Requests", user_requests_path(current_user), class: "nav-link" %>
         </li>
         <li class="nav-item">
           <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link" %>
